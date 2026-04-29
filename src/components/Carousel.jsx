@@ -2,19 +2,24 @@ import { useState, useEffect } from "react";
 import { HiOutlineArrowNarrowLeft, HiOutlineArrowNarrowRight } from "react-icons/hi";
 import CustomButton from "./CustomButton";
 
+// 1. Importation des images
+import hero1 from "../assets/hero-chantier-1.jpg";
+import hero2 from "../assets/hero-chantier-2.jpg";
+import hero3 from "../assets/hero-chantier-3.jpg";
+
 const slides = [
   {
-    src: "src/assets/hero-chantier-1.jpg",
+    src: hero1, // On utilise la variable importée ici
     title: "Bâtissons l'avenir ensemble",
     description: "Forts de notre expertise en bâtiment et travaux publics, nous réalisons des projets solides et durables.",
   },
   {
-    src: "src/assets/hero-chantier-2.jpg",
+    src: hero2,
     title: "Structures Solides, Futur Durable",
     description: "De la construction neuve à la rénovation, nous garantissons qualité, sécurité et respect des délais.",
   },
   {
-    src: "src/assets/hero-chantier-3.jpg",
+    src: hero3,
     title: "Votre satisfaction, notre priorité",
     description: "Des solutions sur mesure adaptées à vos besoins, conformes aux normes les plus exigeantes.",
   },
@@ -46,7 +51,7 @@ const Carousel = () => {
             }`}
           >
             <img
-              src={slide.src}
+              src={slide.src} // Ici, slide.src contient maintenant le bon chemin généré par Vite
               alt={slide.title}
               className="w-full h-full object-cover object-center"
             />
@@ -86,7 +91,7 @@ const Carousel = () => {
         );
       })}
 
-      {/* Flèches de navigation */}
+      {/* Navigation et Indicateurs restent identiques */}
       <button
         onClick={prevSlide}
         className="absolute left-4 md:left-6 top-1/2 -translate-y-1/2 text-white/50 z-30 p-3 rounded-full hover:bg-white/10 hover:text-white transition-all duration-300 hidden md:flex"
@@ -103,7 +108,6 @@ const Carousel = () => {
         <HiOutlineArrowNarrowRight className="size-9" />
       </button>
 
-      {/* Indicateurs */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex gap-3">
         {slides.map((_, index) => (
           <button

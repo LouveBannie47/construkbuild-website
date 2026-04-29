@@ -2,13 +2,19 @@ import React from 'react';
 import CustomButton from './CustomButton';
 import SectionHeader from './SectionHeader';
 
+// 1. Importer toutes les images de projets
+import project1 from "../assets/project-1.jpg";
+import project2 from "../assets/project-2.jpg";
+import project3 from "../assets/project-3.jpg";
+import project4 from "../assets/project-4.jpg";
+
 const projects = [
   {
     id: 1,
     title: "Résidence SkyLine",
     location: "Douala, Bonapriso",
     category: "Résidentiel",
-    img: "src/assets/project-1.jpg",
+    img: project1, // Utiliser la variable importée
     stats: "24 Mois"
   },
   {
@@ -16,7 +22,7 @@ const projects = [
     title: "Complexe Industriel Flux",
     location: "Kribi, Zone Portuaire",
     category: "Industriel",
-    img: "src/assets/project-2.jpg",
+    img: project2,
     stats: "4500 m²"
   },
   {
@@ -24,7 +30,7 @@ const projects = [
     title: "Siège Social TechBuild",
     location: "Yaoundé, Centre",
     category: "Tertiaire",
-    img: "src/assets/project-3.jpg",
+    img: project3,
     stats: "HQE"
   },
   {
@@ -32,7 +38,7 @@ const projects = [
     title: "Pont de la Réunification",
     location: "Littoral",
     category: "Infrastructure",
-    img: "src/assets/project-4.jpg",
+    img: project4,
     stats: "Génie Civil"
   }
 ];
@@ -63,22 +69,20 @@ const RealisationsSection = () => {
               
               {/* Image avec zoom au hover */}
               <img 
-                src={project.img} 
+                src={project.img} // project.img contient maintenant le chemin valide traité par Vite
                 alt={project.title} 
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
               />
 
-              {/* Overlay dégradé */}
+              {/* Le reste de ton code JSX reste identique... */}
               <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-80" />
 
-              {/* Badge Catégorie (Haut Gauche) */}
               <div className="absolute top-6 left-6">
                 <span className="bg-white/90 backdrop-blur-md text-gray-900 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest shadow-lg">
                   {project.category}
                 </span>
               </div>
 
-              {/* Contenu (Bas) */}
               <div className="absolute bottom-0 left-0 right-0 p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                 <div className="flex justify-between items-end">
                   <div className="space-y-1">
@@ -88,17 +92,15 @@ const RealisationsSection = () => {
                     <h3 className="text-2xl md:text-3xl font-bold text-white">{project.title}</h3>
                   </div>
                   
-                  {/* Petit badge de stats à droite */}
                   <div className="text-right hidden sm:block">
                     <span className="text-white/60 text-xs uppercase block">Spécificité</span>
                     <span className="text-white font-semibold">{project.stats}</span>
                   </div>
                 </div>
 
-                {/* Bouton qui apparaît au hover */}
                 <div className="mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                    <button className="text-white border-b-2 border-blue-400 pb-1 font-semibold hover:text-blue-400 transition-colors">
-                     Découvrir le projet →
+                      Découvrir le projet →
                    </button>
                 </div>
               </div>
@@ -106,7 +108,6 @@ const RealisationsSection = () => {
           ))}
         </div>
 
-        {/* Bouton Voir tout */}
         <div className="mt-16 text-center">
             <CustomButton text="Explorer tous nos chantiers" />
         </div>
