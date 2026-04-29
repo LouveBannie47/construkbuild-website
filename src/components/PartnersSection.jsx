@@ -2,7 +2,7 @@ import React from 'react';
 
 // Imports des vraies images (chemin identique à partSection.jsx)
 import ecobank from "../assets/part-1.jpg";
-import mtn from "../assets/part-2.jpg";
+import mtn from "../assets/Part-2.jpg";
 import orange from "../assets/part-3.jpg";
 import uba from "../assets/part-4.jpg";
 import guinness from "../assets/part-5.jpg";
